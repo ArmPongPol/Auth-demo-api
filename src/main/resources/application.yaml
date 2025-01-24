@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: auth-demo
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth_demo
+    username: auth_demo
+    password: auth_demo
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      timeout: 2000
+
+  liquibase:
+    enabled: true
+
+server:
+  port: 8080

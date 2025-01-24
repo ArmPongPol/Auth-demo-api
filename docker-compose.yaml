@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:12
+    container_name: db
+    environment:
+      POSTGRES_DB: auth_demo
+      POSTGRES_USER: auth_demo
+      POSTGRES_PASSWORD: auth_demo
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:6
+    container_name: redis
+    ports:
+      - "6379:6379"
