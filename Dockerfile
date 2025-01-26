@@ -35,7 +35,7 @@ WORKDIR /app
 # Ensure the JAR file exists
 ARG JAR_FILE=auth-demo-0.0.1-SNAPSHOT.jar
 
-COPY build/libs/auth-demo-0.0.1-SNAPSHOT.jar auth-demo-0.0.1-SNAPSHOT.jar
+COPY build/libs/auth-demo-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port 8080
 EXPOSE 8080
