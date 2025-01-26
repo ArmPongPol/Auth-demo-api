@@ -28,7 +28,8 @@
 version: '3.8'
 
 services:
-  app:
+  auth-demo:
+    container_name: auth-demo
     build:
       context: .
       dockerfile: Dockerfile
@@ -44,6 +45,7 @@ services:
       - db
 
   db:
+    container_name: db
     image: postgres:latest
     ports:
       - "5432:5432"
