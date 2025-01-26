@@ -11,17 +11,36 @@
 #COPY --from=builder /app/build/libs/auth-demo-0.0.1-SNAPSHOT.jar auth-demo-0.0.1-SNAPSHOT.jar
 #ENTRYPOINT ["java", "-jar", "auth-demo-0.0.1-SNAPSHOT.jar"]
 
-# Use Amazon Corretto 21 as the base image
+## Use Amazon Corretto 21 as the base image
+#FROM amazoncorretto:21
+#
+## Set working directory inside the container
+#WORKDIR /app
+#
+## Copy the Spring Boot application's JAR file into the container
+#COPY build/libs/auth-demo-0.0.1-SNAPSHOT.jar auth-demo-0.0.1-SNAPSHOT.jar
+#
+## Expose the application port
+#EXPOSE 8080
+#
+## Set the command to run the application
+#ENTRYPOINT ["java", "-jar", "auth-demo-0.0.1-SNAPSHOT.jar"]
+
+# Base image
 FROM amazoncorretto:21
 
-# Set working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy the Spring Boot application's JAR file into the container
+# Ensure the JAR file exists
+ARG JAR_FILE=auth-demo-0.0.1-SNAPSHOT.jar
+
 COPY build/libs/auth-demo-0.0.1-SNAPSHOT.jar auth-demo-0.0.1-SNAPSHOT.jar
 
-# Expose the application port
+# Expose port 8080
 EXPOSE 8080
 
-# Set the command to run the application
-ENTRYPOINT ["java", "-jar", "auth-demo-0.0.1-SNAPSHOT.jar"]
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
+
