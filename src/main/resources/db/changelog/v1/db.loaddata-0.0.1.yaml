@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: Load Data User
+      author: pongpol.arm
+      changes:
+        - loadData:
+            catalogName: users
+            columns:
+              - column:
+                  header: username
+                  name: username
+                  type: varchar
+              - column:
+                  header: password
+                  name: password
+                  type: varchar
+              - column:
+                  header: email
+                  name: email
+                  type: varchar
+            commentLineStartsWith: //
+            encoding: UTF-8
+            file: data/users.csv
+            quotchar: ''''
+            relativeToChangelogFile: true
+            schemaName: public
+            separator: ','
+            tableName: users
+            usePreparedStatements: true

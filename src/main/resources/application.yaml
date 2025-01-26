@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://127.0.0.1:5432/auth_demo  # Change localhost to db
+    url: jdbc:postgresql://localhost:5432/auth_demo  # Change localhost to db
     username: auth_demo
     password: auth_demo
     driver-class-name: org.postgresql.Driver
@@ -8,6 +8,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+    enabled: true
 
 server:
   port: 8080
