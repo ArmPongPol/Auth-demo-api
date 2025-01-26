@@ -25,7 +25,7 @@
 #    depends_on:
 #      - db
 
-version: '3.8'
+version: '3'
 
 services:
   auth-demo:
