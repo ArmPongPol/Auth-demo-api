@@ -1,8 +1,8 @@
 ## stage-1 build artifact
-#FROM amazoncorretto:17-alpine as builder
+#FROM amazoncorretto:21.0.5-alpine3.19 AS builder
 #WORKDIR /app
 #ADD . .
-#RUN ["./gradlew","bootJar"]
+#RUN ["./gradlew","build"]
 #
 ## stage-2 running image
 #FROM gcr.io/distroless/java21:latest

@@ -1,30 +1,3 @@
-#version: '3.7'
-#
-#services:
-#  db:
-#    image: postgres:12
-#    environment:
-#      POSTGRES_DB: auth_demo
-#      POSTGRES_USER: auth_demo
-#      POSTGRES_PASSWORD: auth_demo
-#    ports:
-#      - "5432:5432"
-#
-#  api:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-#    ports:
-#      - "8080:8080"
-#    environment:
-#      DATABASE_URL: jdbc:postgresql://db:5432/auth_demo
-#      DATABASE_USER: auth_demo
-#      DATABASE_PASSWORD: auth_demo
-#      DATABASE_DRIVER: org.postgresql.Driver
-#
-#    depends_on:
-#      - db
-
 version: '3'
 
 services:
