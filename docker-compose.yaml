@@ -10,8 +10,8 @@ services:
       - "8080:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/auth_demo  # Correct database host
-      SPRING_DATASOURCE_USERNAME: auth_demo
-      SPRING_DATASOURCE_PASSWORD: auth_demo
+      SPRING_DATASOURCE_USERNAME: test
+      SPRING_DATASOURCE_PASSWORD: abc12341234
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
@@ -25,5 +25,15 @@ services:
     restart: always
     environment:
       POSTGRES_DB: auth_demo
-      POSTGRES_USER: auth_demo
-      POSTGRES_PASSWORD: auth_demo
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: abc12341234
+
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+    depends_on:
+      - auth-demo
